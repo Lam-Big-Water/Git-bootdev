@@ -219,3 +219,17 @@ The switch command allows you to switch branches, and the -c flag tells Git to c
 When you create a new branch, it uses the current commit you are on as the branch base. For example, if you're on your main branch with 3 commits, A, B, and C, and then you run git switch -c my_new_branch, your new branch will look like this:
 
 ![graph](https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/oah2FRD-1228x682.png)
+
+20. Log Flags
+
+As you know, git log shows you the history of commits in your repo. There are a few flags I like to use from time to time to make the output easier to read.
+
+The first is --decorate. It can be one of:
+
+- short (the default)
+- full (shows the full ref name)
+- no (no decoration)
+
+This flag will show you a more compact view of the log. I use this one all the time, it just makes it so much easier to see what's going on.
+
+`git log --oneline`
