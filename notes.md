@@ -255,3 +255,30 @@ The merge will:
 - Records the result as a new commit, in our case, F.
 
 - F is special because it has two parents, C and E.
+
+23. Run Rebase
+
+first we use he git switch command to create and switch to a new branch called update_dune, but branch off of the D commit. You can supply the commit hash directly to the git switch command:
+
+`git switch -c update_dune COMMITHASH`
+
+To use rebase to bring changes from main onto a current branch:
+
+`git rebase main`
+
+![graph](https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/tCgqhtr-464x720.png)
+
+24. When to Rebase
+
+git rebase and git merge are different tools.
+
+An advantage of merge is that it preserves the true history of the project. It shows when branches were merged and where. One disadvantage is that it can create a lot of merge commits, which can make the history harder to read and understand.
+
+A linear history is generally easier to read, understand, and work with. Some teams enforce the usage of one or the other on their main branch, but generally speaking, you'll be able to do whatever you want with your own branches.
+
+ 1. Warning
+    You should never rebase a public branch (like main) onto anything else. Other developers have it checked out, and if you change its history, you'll cause a lot of problems for them.
+
+    However, with your own branch, you can rebase onto other branches (including a public branch like main) as much as you want.
+
+    translate the content to the chinese
