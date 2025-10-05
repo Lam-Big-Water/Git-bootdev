@@ -386,3 +386,8 @@ As a public portfolio for your coding projects
  1. Git != GitHub
  
  It's important to understand that Git and GitHub are not the same! Git is an open-source command line tool for managing code files. GitHub and its primary competitors, GitLab and Bitbucket, are commercial web products that use Git. Their websites give us a way to store our code that's managed by Git.
+
+33. Git Push
+The git push command pushes (sends) local changes to any "remote" - in our case, GitHub. For example, to push our local main branch's commits to the remote origin's main branch we would run:
+
+git push origin main
