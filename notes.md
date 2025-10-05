@@ -233,3 +233,25 @@ The first is --decorate. It can be one of:
 This flag will show you a more compact view of the log. I use this one all the time, it just makes it so much easier to see what's going on.
 
 `git log --oneline`
+
+21. Merge
+
+"What's the point of having multiple branches?" you might ask. They're most often used to safely make changes without affecting your (or your team's) primary branch. However, once you're happy with your changes, you'll want to merge them back into the main branch so that they make their way into the final product.
+
+22. Merge Commits
+
+`git switch main`
+
+`git merge vimchadsonly`
+
+The merge will:
+
+- Find the "merge base" commit, or "best common ancestor" of the two branches. In this case, A.
+
+- Replay the changes from main, starting from the best common ancestor, into a new commit.
+
+- Replay the changes from vimchadsonly onto main, starting from the best common ancestor.
+
+- Records the result as a new commit, in our case, F.
+
+- F is special because it has two parents, C and E.
