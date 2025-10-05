@@ -390,4 +390,77 @@ As a public portfolio for your coding projects
 33. Git Push
 The git push command pushes (sends) local changes to any "remote" - in our case, GitHub. For example, to push our local main branch's commits to the remote origin's main branch we would run:
 
+`git push origin main`
+
+34. My Solo Workflow
+
+When I'm working by myself, I usually stick to a single branch, main. I mostly use Git on solo projects to keep a backup remotely and to keep a history of my changes. I only rarely use separate branches.
+
+Make changes to files
+git add . (or git add <files> if I only want to add specific files)
+git commit -m "a message describing the changes"
 git push origin main
+It really is that simple for most solo work. git log, git reset, and some others are, of course, useful from time to time, but the above is the core of what I do day-to-day.
+
+35. My Team Workflow
+
+When you're working with a team, Git gets a bit more involved (and we'll cover more of this in part 2 of this course). Here's what I do:
+
+- Update my local main branch with git pull origin main
+- Checkout a new branch for the changes I want to make with git switch -c <branchname>
+- Make changes to files
+- git add .
+- git commit -m "a message describing the changes"
+- git push origin <branchname> (I push to the new branch name, not main)
+- Open a pull request on GitHub to merge my changes into main
+- Ask a team member to review my pull request
+- Once approved, click the "Merge" button on GitHub to merge my changes into main
+- Delete my feature branch, and repeat with a new branch for the next set of changes`git branch -d <branchname>`
+
+36. Gitignore
+
+A problem arises when we want to put files in our project's directory, but we don't want to track them with Git. A .gitignore file solves this. 
+
+Patterns
+It would be rough if .gitignore files only accepted exact filepath section names. Luckily, they don't!
+
+Let's go over some of the most common patterns.
+
+Wildcards
+The * character matches any number of characters except for a slash (/). For example, to ignore all .txt files, you could use the following pattern:
+
+`*.txt`
+
+Rooted Patterns
+Patterns starting with a / are anchored to the directory containing the .gitignore file. For example, this would ignore a main.py in the root directory, but not in any subdirectories:
+
+`/main.py`
+
+Negation
+You can negate a pattern by prefixing it with an exclamation mark (!). For example, to ignore all .txt files except for important.txt, you could use the following pattern:
+
+`*.txt`
+`!important.txt`
+
+Comments
+You can add comments to your .gitignore file by starting a line with a #. For example:
+
+`# Ignore all .txt files`
+`*.txt`
+
+Order Matters
+The order of patterns in a .gitignore file determines their effect, and patterns can override each other. For example:
+
+`temp/*`
+`!temp/instructions.md`
+
+Everything in the temp/ directory would be ignored except for instructions.md. If the order were reversed, instructions.md would be ignored.
+
+37. What to Ignore
+
+We've talked about how to ignore files, but the deeper question is what should you ignore? Here are some rules of thumb for coding projects:
+
+- Ignore things that can be generated (e.g. compiled code, minified files, etc.)
+- Ignore dependencies (e.g. node_modules, venv, packages, etc.)
+- Ignore things that are personal or specific to how you like to work (e.g. editor settings)
+- Ignore things that are sensitive or dangerous (e.g. .env files, passwords, API keys, etc.)
